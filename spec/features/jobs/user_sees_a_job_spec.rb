@@ -11,4 +11,5 @@ describe "User sees a specific job" do
     expect(page).to have_content("Developer")
     expect(page).to have_content("70")
   end
+
 end

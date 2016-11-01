@@ -1,9 +1,15 @@
-<h3>All Companies</h3>
-
-<% @companies.each do |company| %>
-  <ul class=company_<%= company.id %>>
-    <%= link_to company.name, company_path(company) %> - <%= company.city %><br>
-    <%= link_to "Edit", edit_company_path(company) %>
-    <%= link_to "Delete", company_path(company), method: "delete" %>
-  </ul>
-<% end %>
+<h1>All Companies</h1>
+<ul class="list-group">
+  <% @companies.each do |company| %>
+    <li class="list-group-item">
+      <div class=company_<%= company.id %>>
+        <h2 class="light">
+          <%= link_to company.name, company_path(company) %> <small class="light">(<%= company.city %>)</small>
+          <%= link_to "Edit", edit_company_path(company), :class => "btn btn-default" %>
+          <%= link_to "Delete", company_path(company), method: "delete", :class => "btn btn-danger" %>
+        </h2>
+      </div>
+    </li>
+  <% end %>
+</ul>
+<p><%= link_to "New Company", new_company_path %></p>
